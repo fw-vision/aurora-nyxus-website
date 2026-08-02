@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+/* Scan Astro/React sources for class usage (Tailwind 4, no JS config) */
+@source "../**/*.{astro,html,js,jsx,ts,tsx,md,mdx}";
+
+/*
+  Aurora Nyxus design tokens.
+  Reference class: Oxide Computer (oxide.computer) - precision-engineering,
+  monospace-forward, dark canvas, engineering-drawing framing.
+  Signature: aurora (northern-lights) green -> violet luminous gradient.
+*/
+
+@theme {
+  /* Canvas + neutrals (dark-first) */
+  --color-canvas: #0a0c10;        /* near-black base */
+  --color-surface: #12151b;       /* raised panels */
+  --color-surface-2: #1a1e26;     /* cards, inputs */
+  --color-hairline: #262b34;      /* borders, rules */
+  --color-ink: #f4f6f8;           /* primary text */
+  --color-graphite: #aab2bd;      /* secondary text */
+  --color-muted: #6b747f;         /* tertiary / captions */
+
+  /* Aurora accents (the signature) */
+  --color-aurora-green: #3ff5a5;  /* luminous northern-lights green - primary accent */
+  --color-aurora-violet: #a06bff; /* upper-atmosphere violet - secondary accent */
+  --color-signal: #34d2ff;        /* cyan - telemetry, links, active states */
+  --color-amber: #ffb547;         /* warm caution / premium numeric highlight (rationed) */
+
+  /* Fonts */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+/* Fonts (self-hosted-friendly fallback to system; swap to @font-face in docs/plans handoff) */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+
+html {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* The aurora signature gradient - use sparingly (hero accents, key rules) */
+.aurora-gradient {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-aurora-green) 0%,
+    var(--color-signal) 45%,
+    var(--color-aurora-violet) 100%
+  );
+}
+
+.aurora-text {
+  background-image: linear-gradient(
+    100deg,
+    var(--color-aurora-green) 0%,
+    var(--color-signal) 45%,
+    var(--color-aurora-violet) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ambient aurora glow behind hero hardware/figures */
+.aurora-glow {
+  position: relative;
+}
+.aurora-glow::before {
+  content: "";
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 60%;
+  background: radial-gradient(
+    60% 100% at 50% 0%,
+    color-mix(in srgb, var(--color-aurora-green) 22%, transparent) 0%,
+    color-mix(in srgb, var(--color-aurora-violet) 14%, transparent) 45%,
+    transparent 75%
+  );
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Dot-grid / engineering texture (Oxide reference) */
+.dot-grid {
+  background-image: radial-gradient(
+    var(--color-hairline) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* Figure caption convention ("Fig. 1") */
+.fig-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+/* Mono spec/label helper */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-graphite);
+}
+
+/* Links */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Focus visibility for keyboard users */
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 2px;
+}

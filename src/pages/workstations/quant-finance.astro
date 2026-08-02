@@ -1,0 +1,50 @@
+---
+import Main from "../../layouts/Main.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import FeatureCard from "../../components/FeatureCard.astro";
+---
+
+<Main title="AI Workstations for Quant & Finance - Aurora Nyxus" description="Owned, private, low-latency AI compute for funds and trading desks. Your models stay in the building. Discretion and track record.">
+  <PageHeader
+    eyebrow="Workstations / Quant & finance"
+    title="Private compute for models that stay in the building"
+    lede="For funds and trading desks running proprietary models where latency and privacy decide the edge. Owned, private, fast compute that never leaves your control. We build discreetly and we do not talk about who we build for."
+    glow
+    fig="Fig. — Quant & finance"
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">Why owned, for finance</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Proprietary models are the edge; sending them to a shared cloud is a
+          leak and a latency tax. An owned node keeps the model, the data, and
+          the inference in the building, under your control, at the latency you
+          set. The reference class exists: firms already run owned supercompute
+          for exactly this.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">How we work</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Quiet, specced to the strategy, stress-tested, delivered and set up.
+          Discretion is default. We build the box; what you run on it is yours,
+          and we do not need to know.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-5 sm:grid-cols-3">
+      <FeatureCard title="Low latency" index="01" accent="signal">Owned, on-desk or on-prem. No network round-trip to a hyperscaler.</FeatureCard>
+      <FeatureCard title="Private by default" index="02" accent="green">Models and data never leave. No shared tenancy.</FeatureCard>
+      <FeatureCard title="Discreet" index="03" accent="violet">We build quietly. Your edge stays yours.</FeatureCard>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+    <a href="/contact#request-a-build" class="inline-block rounded-sm border border-signal/50 bg-signal/10 px-6 py-3 font-mono text-sm font-medium text-signal transition-colors hover:bg-signal/20">Request a private build</a>
+  </section>
+</Main>

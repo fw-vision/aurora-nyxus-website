@@ -1,0 +1,24 @@
+---
+/**
+ * Numbered step for process sequences (Spec / Build / Own).
+ */
+export interface Props {
+  step: string;
+  title: string;
+}
+const { step, title } = Astro.props;
+---
+
+<div class="flex gap-4">
+  <div
+    class="flex h-9 w-9 shrink-0 items-center justify-center border border-aurora-green/40 bg-aurora-green/10 font-mono text-sm font-medium text-aurora-green"
+  >
+    {step}
+  </div>
+  <div>
+    <h3 class="font-display text-base font-medium text-ink">{title}</h3>
+    <div class="mt-1.5 text-sm leading-relaxed text-graphite">
+      <slot />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+---
+/**
+ * Intentional placeholder frame marking a planned gap. The note encodes the
+ * sourcing / build brief for the next pass.
+ */
+export interface Props {
+  label?: string;
+  note: string;
+  height?: string;
+}
+const { label = "Planned", note, height = "min-h-[160px]" } = Astro.props;
+---
+
+<div
+  class:list={[
+    "dot-grid flex flex-col items-center justify-center gap-2 border border-dashed border-hairline bg-surface/30 p-6 text-center",
+    height,
+  ]}
+>
+  <p class="fig-label text-aurora-violet">{label}</p>
+  <p class="max-w-md text-sm text-muted">{note}</p>
+</div>

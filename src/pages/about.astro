@@ -1,0 +1,58 @@
+---
+import Main from "../layouts/Main.astro";
+import PageHeader from "../components/PageHeader.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+---
+
+<Main title="About - Aurora Nyxus" description="Aurora Nyxus is an independent Canadian AI compute builder. We build the boxes, mesh the capacity, and deploy sovereign on-prem systems. We run our own workloads on our own hardware.">
+  <PageHeader
+    eyebrow="About"
+    title="We build the compute we wanted to own"
+    lede="Aurora Nyxus started with a simple problem: renting cloud inference at thousands a month made no sense when Ontario power is cheap and the hardware can live where you trust it. So we built it. Now we build it for others."
+    fig="Fig. — About"
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">The origin</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Customer zero is us. Nightly agentic workflows were costing about
+          {"$5,000"} a month on a hyperscaler. We priced a build, ran the math,
+          and committed: a multi-GPU node meshed with spare hardware, hosted on
+          a fast Canadian connection, breaking even in months. The system we
+          built for ourselves is the product we now build for you.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">The conviction</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Compute you depend on should be compute you own, on soil you trust.
+          Canada sits low in the global hardware queue, so we are scrappy: we
+          mesh old and new hardware into capacity, and we build an
+          Oxide-class standard of engineering at workstation and node scale,
+          climbing toward rack scale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="font-display mb-6 text-2xl font-medium text-ink">What we stand on</h2>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <FeatureCard title="Independent" index="01" accent="green">A founder-owned Canadian venture, not a reseller.</FeatureCard>
+      <FeatureCard title="Engineering-first" index="02" accent="signal">Precision builds, stress-tested, documented. No RGB theatre.</FeatureCard>
+      <FeatureCard title="Sovereign" index="03" accent="violet">Canadian custody and CLOUD-Act-free deployment, with DAI Compute.</FeatureCard>
+      <FeatureCard title="Honest" index="04" accent="green">We show the break-even math and name the tradeoffs.</FeatureCard>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+    <p class="text-sm text-graphite">
+      Aurora Nyxus is part of a Canadian venture group and partners with
+      <a href="https://daicompute.ca" target="_blank" rel="noopener noreferrer" class="text-aurora-green hover:underline">DAI Compute</a>
+      on sovereign infrastructure. Meet the team on the
+      <a href="/contact" class="text-aurora-green hover:underline">contact page</a>.
+    </p>
+  </section>
+</Main>

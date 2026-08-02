@@ -1,0 +1,49 @@
+---
+import Main from "../../layouts/Main.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import FeatureCard from "../../components/FeatureCard.astro";
+---
+
+<Main title="Sovereign AI for Government & Dual-Use - Aurora Nyxus" description="CLOUD-Act-free, Canadian-custody AI infrastructure for the public sector and dual-use programs. Verifiable, auditable, owned.">
+  <PageHeader
+    eyebrow="Sovereign / Government"
+    title="Canadian compute, free of foreign reach"
+    lede="For public-sector and dual-use programs with sovereignty and data-residency mandates. Infrastructure that is Canadian-owned, physically in-country, and free of CLOUD Act exposure, with a verifiable security posture and infrastructure-finance backing through DAI Compute."
+    glow
+    fig="Fig. — Government & dual-use"
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">The sovereignty case</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Canadian programs routinely run through US-owned infrastructure. Under
+          the US CLOUD Act, that data is reachable, even on Canadian soil.
+          Aurora Nyxus deploys owned, in-country compute so the sovereignty is
+          structural, not contractual.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">Dual-use aligned</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Sovereign compute is a natural fit for dual-use (civilian and defence)
+          funding. We build to a verifiable, auditable standard and partner with
+          DAI Compute for the financing and sovereignty framing.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-5 sm:grid-cols-3">
+      <FeatureCard title="CLOUD-Act-free" index="01" accent="green">Canadian-owned, in-country hardware. No foreign compulsion path.</FeatureCard>
+      <FeatureCard title="Auditable" index="02" accent="signal">Documented security posture and verifiable custody.</FeatureCard>
+      <FeatureCard title="Financed" index="03" accent="violet">Infrastructure-finance backing via DAI Compute for scale.</FeatureCard>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+    <a href="/contact" class="inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-6 py-3 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20">Discuss a sovereign deployment</a>
+  </section>
+</Main>

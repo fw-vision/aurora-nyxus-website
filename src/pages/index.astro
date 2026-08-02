@@ -1,0 +1,167 @@
+---
+import Main from "../layouts/Main.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import StepCard from "../components/StepCard.astro";
+import MeshTopology from "../components/widgets/MeshTopology.tsx";
+import BreakEvenCalculator from "../components/widgets/BreakEvenCalculator.tsx";
+---
+
+<Main>
+  <!-- Hero -->
+  <section class="aurora-glow relative overflow-hidden">
+    <div class="dot-grid absolute inset-0 opacity-[0.35]"></div>
+    <div class="relative z-10 mx-auto max-w-6xl px-5 pt-20 pb-16 sm:pt-28">
+      <p class="fig-label mb-4">Fig. 0 — Aurora Nyxus</p>
+      <h1
+        class="font-display max-w-4xl text-5xl font-semibold leading-[1.02] tracking-tight sm:text-6xl lg:text-7xl"
+      >
+        Compute you <span class="aurora-text">own</span>.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-graphite sm:text-xl">
+        Aurora Nyxus builds premium AI compute workstations and sovereign
+        on-prem AI systems for Canadians who need serious compute they control.
+        We spec, build, and stand behind multi-GPU nodes. For sensitive
+        workloads, we deploy sovereign, CLOUD-Act-free infrastructure on soil
+        you trust.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="/contact#request-a-build"
+          class="rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-5 py-2.5 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20"
+        >
+          Request a build
+        </a>
+        <a
+          href="/why-owned"
+          class="rounded-sm border border-hairline px-5 py-2.5 font-mono text-sm font-medium text-graphite transition-colors hover:border-graphite/50 hover:text-ink"
+        >
+          See owned vs rented
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Two doors -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+      <a href="/workstations" class="group bg-canvas p-8 transition-colors hover:bg-surface/40">
+        <p class="mono-label mb-3 text-aurora-green">Door 1</p>
+        <h2 class="font-display text-2xl font-medium text-ink">
+          Premium AI workstations
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">
+          Custom multi-GPU boxes for research labs, quant desks, and studios.
+          Specced to your workload, stress-tested, and supported. Built in
+          Canada.
+        </p>
+        <p class="mt-4 font-mono text-xs text-aurora-green group-hover:underline">
+          Explore workstations →
+        </p>
+      </a>
+      <a href="/sovereign" class="group bg-canvas p-8 transition-colors hover:bg-surface/40">
+        <p class="mono-label mb-3 text-aurora-violet">Door 2</p>
+        <h2 class="font-display text-2xl font-medium text-ink">
+          Sovereign on-prem deployment
+        </h2>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">
+          Air-gapped and firewall-behind AI for data-residency-sensitive work:
+          government, Indigenous data sovereignty, regulated enterprise. In
+          partnership with DAI Compute.
+        </p>
+        <p class="mt-4 font-mono text-xs text-aurora-violet group-hover:underline">
+          Explore sovereign →
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Mesh topology widget -->
+  <section class="mx-auto max-w-6xl px-5 py-8">
+    <div class="grid items-center gap-8 lg:grid-cols-2">
+      <div>
+        <p class="mono-label mb-3 text-signal">Scrappy by design</p>
+        <h2 class="font-display text-3xl font-medium leading-tight text-ink">
+          Mesh old and new hardware into usable capacity
+        </h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Canada sits low in the global hardware queue. We build around it: mesh
+          a new RTX 5090 node with older cards, run different-sized models on
+          different nodes, and present one addressable pool. Start with a proof
+          of concept, prove the mesh, scale the cluster.
+        </p>
+      </div>
+      <MeshTopology client:visible />
+    </div>
+  </section>
+
+  <!-- The plan: Spec / Build / Own -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <h2 class="font-display text-3xl font-medium text-ink">Spec. Build. Own.</h2>
+    <div class="mt-8 grid gap-8 sm:grid-cols-3">
+      <StepCard step="1" title="Spec">
+        Tell us the workload. We design the right node: VRAM, thermals, mesh
+        headroom.
+      </StepCard>
+      <StepCard step="2" title="Build">
+        We build, stress-test under sustained load, and stand behind it.
+      </StepCard>
+      <StepCard step="3" title="Own">
+        You run it on your terms, on your soil. For sensitive payloads, we
+        deploy sovereign on-prem.
+      </StepCard>
+    </div>
+  </section>
+
+  <!-- Break-even widget -->
+  <section class="mx-auto max-w-6xl px-5 py-8">
+    <div class="mb-6">
+      <p class="mono-label mb-3 text-aurora-green">The honest math</p>
+      <h2 class="font-display text-3xl font-medium leading-tight text-ink">
+        Owned beats rented, and we show the math
+      </h2>
+    </div>
+    <BreakEvenCalculator client:visible />
+  </section>
+
+  <!-- Why us -->
+  <section class="mx-auto max-w-6xl px-5 py-16">
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <FeatureCard title="Sovereignty-first" index="01" accent="green">
+        Owned, Canadian, CLOUD-Act-free compute. Not a box with a sovereignty
+        sticker.
+      </FeatureCard>
+      <FeatureCard title="Precision-built" index="02" accent="signal">
+        Multi-GPU nodes engineered for sustained load, not gaming rigs with RGB.
+      </FeatureCard>
+      <FeatureCard title="We dogfood it" index="03" accent="violet">
+        We run our own workloads on our own hardware. The break-even is real,
+        not a slide.
+      </FeatureCard>
+      <FeatureCard title="Custody you can see" index="04" accent="green">
+        For sovereign work, the box lives where you decide. Physical custody is
+        the assurance.
+      </FeatureCard>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-6xl px-5 pb-20">
+    <div
+      class="aurora-glow relative overflow-hidden border border-hairline bg-surface/40 p-10 text-center"
+    >
+      <h2 class="font-display relative z-10 text-3xl font-medium text-ink">
+        Own your compute.
+      </h2>
+      <p class="relative z-10 mx-auto mt-3 max-w-xl text-graphite">
+        Tell us your model, context length, and timeline. We send a build spec
+        you can deploy.
+      </p>
+      <a
+        href="/contact#request-a-build"
+        class="relative z-10 mt-6 inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-6 py-3 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20"
+      >
+        Request a build
+      </a>
+    </div>
+  </section>
+</Main>

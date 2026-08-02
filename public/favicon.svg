@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="12" fill="#0a0c10"/>
+  <defs>
+    <linearGradient id="aurora" x1="10" y1="20" x2="54" y2="30" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3ff5a5"/>
+      <stop offset="0.5" stop-color="#34d2ff"/>
+      <stop offset="1" stop-color="#a06bff"/>
+    </linearGradient>
+  </defs>
+  <!-- aurora arc -->
+  <path d="M12 30 C 22 14, 42 14, 52 30" stroke="url(#aurora)" stroke-width="3.5" stroke-linecap="round"/>
+  <!-- nexus of nodes -->
+  <circle cx="32" cy="44" r="4" fill="#3ff5a5"/>
+  <circle cx="18" cy="48" r="3" fill="#34d2ff"/>
+  <circle cx="46" cy="48" r="3" fill="#a06bff"/>
+  <line x1="32" y1="44" x2="18" y2="48" stroke="#262b34" stroke-width="1.5"/>
+  <line x1="32" y1="44" x2="46" y2="48" stroke="#262b34" stroke-width="1.5"/>
+  <line x1="18" y1="48" x2="46" y2="48" stroke="#262b34" stroke-width="1.5"/>
+</svg>

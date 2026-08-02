@@ -1,0 +1,70 @@
+---
+/**
+ * Partnerships / affiliations logo grid. Grayscale text-or-logo cells, hairline
+ * grid, nominative-association framing (not endorsement). DAI Compute is the
+ * anchor partner. Per-cell borders so incomplete rows never ghost.
+ */
+export interface PartnerItem {
+  id: string;
+  name: string;
+  logo?: string;
+  href?: string;
+  role?: string;
+}
+export interface Props {
+  items: PartnerItem[];
+  heading?: string;
+  note?: string;
+}
+const {
+  items,
+  heading = "In partnership with",
+  note = "Nominative association, not endorsement.",
+} = Astro.props;
+---
+
+<section class="mx-auto max-w-6xl px-5 py-14">
+  <p class="fig-label mb-6 text-center">{heading}</p>
+  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+    {
+      items.map((item) => {
+        const classes =
+          "flex min-h-[104px] flex-col items-center justify-center gap-2 border border-hairline bg-surface/40 px-6 py-8 -mt-px -ml-px transition-colors hover:bg-surface/70";
+        const body = (
+          <>
+            {item.logo ? (
+              <img
+                src={item.logo}
+                alt={item.name}
+                class="h-8 w-auto max-w-[160px] object-contain opacity-80"
+                style="filter: grayscale(1) contrast(1.05);"
+                loading="lazy"
+              />
+            ) : (
+              <span class="font-display text-center text-sm font-medium text-ink">
+                {item.name}
+              </span>
+            )}
+            {item.role && (
+              <span class="mono-label text-muted">{item.role}</span>
+            )}
+          </>
+        );
+        return item.href ? (
+          <a
+            href={item.href}
+            class={classes}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={item.name}
+          >
+            {body}
+          </a>
+        ) : (
+          <div class={classes}>{body}</div>
+        );
+      })
+    }
+  </div>
+  {note && <p class="mt-6 text-center text-xs text-muted">{note}</p>}
+</section>

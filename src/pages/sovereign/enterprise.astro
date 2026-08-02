@@ -1,0 +1,49 @@
+---
+import Main from "../../layouts/Main.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import FeatureCard from "../../components/FeatureCard.astro";
+---
+
+<Main title="Sovereign AI for Regulated Enterprise - Aurora Nyxus" description="Air-gapped, on-prem AI for finance and health. Data never leaves your walls. Compliance-ready, verifiable, owned.">
+  <PageHeader
+    eyebrow="Sovereign / Enterprise"
+    title="Air-gapped AI for regulated industries"
+    lede="For banks, insurers, and health organisations that cannot send sensitive data to US cloud. On-prem AI behind your firewall, or fully air-gapped, so the data never leaves your walls. Compliance-ready and verifiable."
+    glow
+    fig="Fig. — Regulated enterprise"
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">Data stays inside</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Regulated data cannot leave the perimeter. We deploy AI on hardware
+          behind your firewall or fully air-gapped, so prompts, outputs, and
+          fine-tuned models stay in your environment. The hardware layer beneath
+          your models is owned and Canadian.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">Open models, your control</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Run open models (Llama, Mistral, Qwen and peers) on owned hardware, or
+          host a vendor's private deployment on our boxes. Either way, you keep
+          control of the stack and the data.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-5 sm:grid-cols-3">
+      <FeatureCard title="Air-gapped option" index="01" accent="green">Fully isolated deployment behind your firewall.</FeatureCard>
+      <FeatureCard title="Compliance-ready" index="02" accent="signal">Built toward SOC 2, ISO, and sector requirements.</FeatureCard>
+      <FeatureCard title="Own the stack" index="03" accent="violet">Open models on owned hardware. No vendor lock-in.</FeatureCard>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+    <a href="/contact" class="inline-block rounded-sm border border-aurora-violet/50 bg-aurora-violet/10 px-6 py-3 font-mono text-sm font-medium text-aurora-violet transition-colors hover:bg-aurora-violet/20">Discuss a deployment</a>
+  </section>
+</Main>

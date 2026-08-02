@@ -1,0 +1,54 @@
+---
+import Main from "../layouts/Main.astro";
+import PageHeader from "../components/PageHeader.astro";
+import BreakEvenCalculator from "../components/widgets/BreakEvenCalculator.tsx";
+import FeatureCard from "../components/FeatureCard.astro";
+---
+
+<Main title="Why Owned - Aurora Nyxus" description="The honest owned-vs-rented math. Continuous AI workloads break even against cloud in months, then keep saving. Own your compute.">
+  <PageHeader
+    eyebrow="The honest math"
+    title="Owned beats rented. Here is the math."
+    lede="Cloud AI inference is a large, variable, recurring cost. Continuous workloads break even against a self-hosted build in months, then keep saving for years. We do not hide the premium. We show it."
+    fig="Fig. — Owned vs rented"
+  />
+
+  <section class="mx-auto max-w-6xl px-5 py-8">
+    <BreakEvenCalculator client:visible />
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">The rented trap</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Pay-as-you-go inference scales with use. A single set of nightly
+          agentic workflows runs about {"$5,000"} a month on a hyperscaler. For a
+          product, every user consumes credits: near-zero marginal cost becomes
+          a real variable bill. You rent forever, and the meter never stops.
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-2xl font-medium text-ink">The owned advantage</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          A self-hosted node's main operating cost is electricity. Ontario power
+          runs about 7 cents/kWh at night and 13 cents in the morning, against
+          35 to 80 cents in parts of the US. Run a node 24/7 and it breaks even
+          in roughly ten months, then it is yours.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-5 sm:grid-cols-3">
+      <FeatureCard title="Fixed, not variable" index="01" accent="green">Owned capacity turns AI cost into a fixed line. Build products without a per-user meter.</FeatureCard>
+      <FeatureCard title="Cheap Ontario power" index="02" accent="signal">Among the lowest electricity rates in North America. The operating cost is negligible.</FeatureCard>
+      <FeatureCard title="Route intelligently" index="03" accent="violet">Local, subscription, and pay-as-you-go via one router. Ration cost across all three.</FeatureCard>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+    <a href="/contact#request-a-build" class="inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-6 py-3 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20">Request a build</a>
+  </section>
+</Main>

@@ -1,0 +1,95 @@
+---
+import Main from "../layouts/Main.astro";
+import PageHeader from "../components/PageHeader.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import StepCard from "../components/StepCard.astro";
+---
+
+<Main title="Sovereign Deployment - Aurora Nyxus" description="Sovereign on-prem AI deployment for data-residency-sensitive work: government, Indigenous data sovereignty, regulated enterprise. CLOUD-Act-free, Canadian custody. In partnership with DAI Compute.">
+  <PageHeader
+    eyebrow="Door 2"
+    title="Sovereign AI, on soil you trust"
+    lede="For work that cannot touch US cloud. Air-gapped and firewall-behind AI systems where the data stays in your authority, on hardware you can verify and own. Delivered in partnership with DAI Compute for the sovereignty and financing layer."
+    glow
+    fig="Fig. — Sovereign deployment"
+  />
+
+  <!-- The problem -->
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="grid gap-8 lg:grid-cols-2">
+      <div>
+        <p class="mono-label mb-3 text-aurora-violet">The exposure</p>
+        <h2 class="font-display text-2xl font-medium leading-tight text-ink">Foreign infrastructure is a governance risk</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          The US-to-Canada compute ratio is roughly 100 to one. The data centres
+          in Quebec and Ontario, where power is cheapest, are largely US-owned.
+          Under the US CLOUD Act, American authorities can compel access to data
+          held by US providers, even on Canadian soil.
+        </p>
+      </div>
+      <div>
+        <p class="mono-label mb-3 text-aurora-green">The answer</p>
+        <h2 class="font-display text-2xl font-medium leading-tight text-ink">Custody you can point to</h2>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          For some work, secure has a physical definition: the box is in your
+          building, under your control. Aurora Nyxus deploys sovereign on-prem
+          systems where custody, not a contract clause, is the assurance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Segments -->
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="font-display mb-6 text-2xl font-medium text-ink">Who we deploy for</h2>
+    <div class="grid gap-px border border-hairline bg-hairline md:grid-cols-3">
+      <a href="/sovereign/government" class="group bg-canvas p-7 transition-colors hover:bg-surface/40">
+        <p class="mono-label mb-2 text-aurora-green">Government</p>
+        <h3 class="font-display text-lg font-medium text-ink">Public sector & dual-use</h3>
+        <p class="mt-2 text-sm text-graphite">CLOUD-Act-free, Canadian custody, auditable. Dual-use funding aligned.</p>
+        <p class="mt-3 font-mono text-xs text-aurora-green group-hover:underline">Details →</p>
+      </a>
+      <a href="/sovereign/indigenous-data" class="group bg-canvas p-7 transition-colors hover:bg-surface/40">
+        <p class="mono-label mb-2 text-signal">Indigenous data</p>
+        <h3 class="font-display text-lg font-medium text-ink">Data sovereignty</h3>
+        <p class="mt-2 text-sm text-graphite">Physical custody, OCAP-aligned governance, attribution protection.</p>
+        <p class="mt-3 font-mono text-xs text-signal group-hover:underline">Details →</p>
+      </a>
+      <a href="/sovereign/enterprise" class="group bg-canvas p-7 transition-colors hover:bg-surface/40">
+        <p class="mono-label mb-2 text-aurora-violet">Enterprise</p>
+        <h3 class="font-display text-lg font-medium text-ink">Regulated industries</h3>
+        <p class="mt-2 text-sm text-graphite">Air-gapped AI for finance and health. Compliance-ready, data never leaves.</p>
+        <p class="mt-3 font-mono text-xs text-aurora-violet group-hover:underline">Details →</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="font-display mb-8 text-2xl font-medium text-ink">How a deployment works</h2>
+    <div class="grid gap-8 sm:grid-cols-3">
+      <StepCard step="1" title="Scope">Assess the workload, the data-residency requirement, and the custody model.</StepCard>
+      <StepCard step="2" title="Build & deploy">Build the node or cluster; deploy on-prem, air-gapped or firewall-behind.</StepCard>
+      <StepCard step="3" title="Verify & hand over">Verifiable custody, documented security posture, ongoing support.</StepCard>
+    </div>
+  </section>
+
+  <!-- DAI Compute partnership -->
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <div class="border border-hairline bg-surface/40 p-8">
+      <p class="mono-label mb-3 text-aurora-green">Partnership</p>
+      <h2 class="font-display text-2xl font-medium text-ink">Sovereignty and financing with DAI Compute</h2>
+      <p class="mt-4 max-w-3xl text-base leading-relaxed text-graphite">
+        Aurora Nyxus builds and deploys the hardware. <a href="https://daicompute.ca" target="_blank" rel="noopener noreferrer" class="text-aurora-green hover:underline">DAI Compute</a>
+        provides the sovereignty framing and infrastructure-finance layer:
+        the method for Canadians to invest in, borrow against, and build
+        Canadian energy and AI compute. Together, sovereign capacity that is
+        owned, financed, and verifiable, on Canadian soil under Canadian law.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+    <a href="/contact" class="inline-block rounded-sm border border-aurora-violet/50 bg-aurora-violet/10 px-6 py-3 font-mono text-sm font-medium text-aurora-violet transition-colors hover:bg-aurora-violet/20">Discuss a deployment</a>
+  </section>
+</Main>

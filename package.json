@@ -1,0 +1,31 @@
+{
+  "name": "aurora-nyxus-website",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^6.0.1",
+    "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "astro": "5.13.7",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "tailwindcss": "4.1.13",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "overrides": {
+    "vite": "npm:vite@^7.1.5"
+  }
+}

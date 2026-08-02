@@ -1,0 +1,51 @@
+---
+/**
+ * Workload -> recommended build table. Aurora Nyxus's answer to the Alpha PC
+ * spec matrix: darker, mono, precise. Numbers carry the weight.
+ */
+export interface SpecRow {
+  workload: string;
+  gpu: string;
+  vram: string;
+  memory: string;
+  note?: string;
+}
+export interface Props {
+  rows: SpecRow[];
+  caption?: string;
+}
+const { rows, caption } = Astro.props;
+---
+
+<div class="overflow-x-auto border border-hairline">
+  <table class="w-full border-collapse text-left text-sm">
+    <thead>
+      <tr class="border-b border-hairline bg-surface/60">
+        <th class="mono-label px-4 py-3 font-medium">Workload</th>
+        <th class="mono-label px-4 py-3 font-medium">GPU</th>
+        <th class="mono-label px-4 py-3 font-medium">VRAM</th>
+        <th class="mono-label px-4 py-3 font-medium">Memory</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        rows.map((r) => (
+          <tr class="border-b border-hairline/60 last:border-0">
+            <td class="px-4 py-3 font-display font-medium text-ink">
+              {r.workload}
+              {r.note && (
+                <span class="mt-0.5 block text-xs font-normal text-muted">
+                  {r.note}
+                </span>
+              )}
+            </td>
+            <td class="px-4 py-3 font-mono text-graphite">{r.gpu}</td>
+            <td class="px-4 py-3 font-mono text-aurora-green">{r.vram}</td>
+            <td class="px-4 py-3 font-mono text-graphite">{r.memory}</td>
+          </tr>
+        ))
+      }
+    </tbody>
+  </table>
+</div>
+{caption && <p class="mt-3 text-xs text-muted">{caption}</p>}

@@ -1,0 +1,92 @@
+---
+import Main from "../layouts/Main.astro";
+import PageHeader from "../components/PageHeader.astro";
+import BusinessCard from "../components/BusinessCard.astro";
+
+/*
+  Static site: no backend. Contact is mailto + business cards.
+  Emails are role-based aliases at auroranyxus.com (no personal addresses
+  hardcoded beyond public handles). Ben's public handle (NinARM1Builds) is
+  already public on GitHub; included by his own convention.
+*/
+---
+
+<Main title="Contact - Aurora Nyxus" description="Request a build or discuss a sovereign deployment. Reach the Aurora Nyxus team.">
+  <PageHeader
+    eyebrow="Contact"
+    title="Request a build. Or start a conversation."
+    lede="Static site, real people. Tell us your model, context length, dataset size, and timeline, and we send back a build spec you can deploy."
+    fig="Fig. — Contact"
+  />
+
+  <!-- Request a build -->
+  <section id="request-a-build" class="mx-auto max-w-6xl px-5 py-10">
+    <div class="border border-hairline bg-surface/40 p-8">
+      <p class="mono-label mb-3 text-aurora-green">Request a build</p>
+      <h2 class="font-display text-2xl font-medium text-ink">Tell us the workload</h2>
+      <p class="mt-3 max-w-2xl text-base leading-relaxed text-graphite">
+        Send us the model(s) you want to run, target context length, dataset
+        size, whether it is workstation or sovereign on-prem, and your timeline.
+        We reply with a recommended spec and a quote.
+      </p>
+      <a
+        href="mailto:build@auroranyxus.com?subject=Build%20request&body=Workload%3A%0AModel(s)%3A%0AContext%20length%3A%0AWorkstation%20or%20sovereign%20on-prem%3A%0ATimeline%3A%0ABudget%20range%3A"
+        class="mt-5 inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-5 py-2.5 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20"
+      >
+        build@auroranyxus.com
+      </a>
+    </div>
+  </section>
+
+  <!-- Team business cards -->
+  <section class="mx-auto max-w-6xl px-5 py-10">
+    <h2 class="font-display mb-2 text-2xl font-medium text-ink">Reach a person</h2>
+    <p class="mb-8 max-w-2xl text-sm text-graphite">
+      Card style tuned to the work: dark, precise, engineering-framed. Reach the
+      right person directly.
+    </p>
+    <div class="grid gap-6 md:grid-cols-2">
+      <BusinessCard
+        name="Ben Wang"
+        role="Hardware & builds"
+        email="ben@auroranyxus.com"
+        handle="github.com/NinARM1Builds"
+        fig="Fig. A"
+        accent="green"
+        slogan="Precision builds, stress-tested."
+      />
+      <BusinessCard
+        name="Francis Wang"
+        role="Strategy, software & partnerships"
+        email="francis@auroranyxus.com"
+        fig="Fig. B"
+        accent="signal"
+        slogan="Compute you own."
+      />
+      <BusinessCard
+        name="Salar Ali Mumtaz"
+        role="Infrastructure & networking"
+        email="salar@auroranyxus.com"
+        fig="Fig. C"
+        accent="violet"
+        slogan="Meshed capacity, one pool."
+      />
+      <BusinessCard
+        name="General enquiries"
+        role="Anything else"
+        email="hello@auroranyxus.com"
+        fig="Fig. D"
+        accent="green"
+        slogan="On soil you trust."
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-20 pt-4">
+    <p class="text-xs text-muted">
+      Email addresses are role aliases at auroranyxus.com. No web form on a
+      static site by design: it keeps your first message off third-party form
+      backends.
+    </p>
+  </section>
+</Main>

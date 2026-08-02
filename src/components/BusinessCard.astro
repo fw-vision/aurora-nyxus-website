@@ -1,0 +1,129 @@
+---
+/**
+ * Aurora Nyxus business card. Dark, precision-engineering style (not the light
+ * editorial syncidlabs card): near-black surface, mono contact block, aurora
+ * accent rule down the left edge, "Fig." engineering framing. Standard card
+ * ratio 3.5 x 2.
+ *
+ * Style is tuned to the target audience (engineers, quants, lab leads, gov):
+ * technical, terse, confident. Contact is mailto/tel only (static site).
+ */
+export interface Props {
+  name: string;
+  role: string;
+  email: string;
+  phone?: string;
+  handle?: string;
+  org?: string;
+  fig?: string;
+  slogan?: string;
+  accent?: "green" | "violet" | "signal";
+}
+const {
+  name,
+  role,
+  email,
+  phone,
+  handle,
+  org = "Aurora Nyxus",
+  fig,
+  slogan = "Compute you own.",
+  accent = "green",
+} = Astro.props;
+
+const accentVar = {
+  green: "var(--color-aurora-green)",
+  violet: "var(--color-aurora-violet)",
+  signal: "var(--color-signal)",
+}[accent];
+---
+
+<article class="an-card" style={`--card-accent: ${accentVar};`}>
+  <div class="an-card__accent"></div>
+
+  <div class="an-card__top">
+    <div class="min-w-0">
+      <p class="font-display text-[11px] font-semibold tracking-tight text-ink sm:text-xs">
+        Aurora<span style={`color: ${accentVar};`}>Nyxus</span>
+      </p>
+      <p class="an-card__slogan">{slogan}</p>
+    </div>
+    {fig && <p class="fig-label shrink-0">{fig}</p>}
+  </div>
+
+  <div class="an-card__id">
+    <h3 class="font-display text-base font-medium leading-tight text-ink sm:text-lg">
+      {name}
+    </h3>
+    <p class="mt-0.5 font-mono text-[11px] text-graphite sm:text-xs">{role}</p>
+  </div>
+
+  <div class="an-card__contact">
+    <div class="min-w-0 font-mono text-[10px] leading-relaxed text-graphite sm:text-[11px]">
+      <p class="font-medium text-ink">{org}</p>
+      <a href={`mailto:${email}`} class="block hover:text-ink" style={`color: ${accentVar};`}>
+        {email}
+      </a>
+      {phone && (
+        <a href={`tel:${phone.replace(/[^0-9+]/g, "")}`} class="block hover:text-ink">
+          {phone}
+        </a>
+      )}
+      {handle && <p class="text-muted">{handle}</p>}
+    </div>
+  </div>
+</article>
+
+<style>
+  .an-card {
+    position: relative;
+    display: flex;
+    width: 100%;
+    max-width: 560px;
+    aspect-ratio: 3.5 / 2;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    border: 1px solid var(--color-hairline);
+    background:
+      radial-gradient(
+        120% 100% at 100% 0%,
+        color-mix(in srgb, var(--card-accent) 9%, transparent) 0%,
+        transparent 55%
+      ),
+      var(--color-surface);
+    padding: 1.1rem 1.15rem 1.1rem 1.35rem;
+  }
+  .an-card__accent {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--card-accent);
+  }
+  .an-card__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  .an-card__slogan {
+    margin-top: 0.15rem;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+  }
+  .an-card__contact {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+  @media (min-width: 640px) {
+    .an-card {
+      padding: 1.25rem 1.35rem 1.25rem 1.5rem;
+    }
+  }
+</style>

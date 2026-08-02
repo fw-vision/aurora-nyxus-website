@@ -1,0 +1,14 @@
+---
+/**
+ * Aurora Nyxus wordmark. "Aurora" in ink, "Nyxus" carrying the aurora accent.
+ * Mono-inflected, engineered feel.
+ */
+export interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<span class={`font-display font-semibold tracking-tight ${className}`}>
+  Aurora<span class="aurora-text">Nyxus</span>
+</span>
