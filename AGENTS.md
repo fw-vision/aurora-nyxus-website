@@ -16,6 +16,7 @@ This repository is **public**. Do not include private information (see Privacy f
 | Doc | Purpose |
 |-----|---------|
 | `docs/brand/DESIGN.md` | The design spec. Aurora palette, type, texture, components, motion. Read before UI work. |
+| `docs/brand/IMAGE-STYLE.md` | Locked hardware figure style bible + shot list for product imagery. |
 | `docs/brand/voice.md` | Voice guidelines (Oxide-register: terse, technical-poetic, confident). |
 | `docs/strategy/positioning.md` | Two-door model, competitor differentiation, segment map (public-safe). |
 | `docs/adr/` | Architecture decisions (static hosting, standalone stack, two-door IA, aurora-dark theme). |
@@ -43,7 +44,7 @@ Everything web-facing is drawn only from public-safe brand, strategy, and landsc
 |---------|--------|
 | Framework | Astro 5.13 (static output) |
 | Styling | Tailwind 4 via `@tailwindcss/vite` (CSS `@source`, no JS config) |
-| Islands | `@astrojs/react` for the two interactive widgets (MeshTopology, BreakEvenCalculator) |
+| Islands | `@astrojs/react` for the two interactive widgets (MeshTopology, BuildVsRent) |
 | Vite | Pinned via `overrides: { "vite": "npm:vite@^7.1.5" }` |
 | Dependencies | Standalone - no private packages. Self-contained public repo. |
 | Hosting | GitHub Pages (static) via `.github/workflows/deploy.yml` (bun) |
@@ -53,35 +54,41 @@ Everything web-facing is drawn only from public-safe brand, strategy, and landsc
 
 ```
 src/
-  layouts/Main.astro          Nav (Workstations/Sovereign/Why Owned/About/Contact) + partnerships banner + footer
+  layouts/Main.astro          Nav (Workstations/Mesh Compute/Why Owned/About/Contact) + partnerships banner (DAICompute wordmark) + footer
   pages/
-    index.astro               Home: hero "Compute you own", two doors, mesh widget, spec/build/own, break-even widget, why-us, CTA
-    workstations.astro        Door 1 hub: spec matrix, 3 segment links, what-you-get
-    sovereign.astro           Door 2 hub: problem/answer, 3 segment links, process, DAI Compute partnership
-    why-owned.astro           Break-even widget + owned-vs-rented argument
+    index.astro               Home: hero "Compute you own", two TRACKS (Workstations / Mesh Compute), chain-to-scale (premium mesh), spec/build/own, BuildVsRent widget, why-us, CTA
+    workstations.astro        Track 1 (premium): GB10/DGX Spark chain-to-scale, spec matrix incl. frontier, 4 segment links
+    mesh-compute.astro        Track 2 (sovereign/scrappy): scrappy-by-design mesh, sovereignty case, 2 segment links, DAI Compute partnership
+    why-owned.astro           BuildVsRent widget + owned-vs-rented argument (~1yr break-even, honest)
     about.astro               Origin (customer zero), conviction, values
     contact.astro             mailto + brand business cards (Ben/Francis/Salar/general)
     workstations/
-      research-labs.astro     Segment landing (labs)
-      quant-finance.astro     Segment landing (funds/trading)
-      studios.astro           Segment landing (creative/media)
-    sovereign/
-      government.astro        Segment landing (public sector / dual-use)
-      indigenous-data.astro   Segment landing (Indigenous data sovereignty)
-      enterprise.astro        Segment landing (regulated finance/health)
+      research-labs.astro     Segment (labs)
+      quant-finance.astro     Segment (funds/trading)
+      studios.astro           Segment (creative/media)
+      enterprise.astro        Segment (regulated finance/health) - premium track
+    mesh-compute/
+      government.astro        Segment (public sector / dual-use)
+      indigenous-data.astro   Segment (Indigenous data sovereignty)
   components/
     Wordmark.astro            Aurora + Nyxus (aurora-accent)
-    PageHeader.astro          Eyebrow + title + lede + optional glow / fig label
-    FeatureCard, StepCard, Placeholder, SpecTable, PartnersBanner
+    PageHeader, FeatureCard, StepCard, Placeholder, SpecTable, PartnersBanner
     BusinessCard.astro        Dark precision-engineering card (mailto/tel), aurora accent rule
     widgets/
-      MeshTopology.tsx        Animated node -> two-node mesh -> cluster (React island, client:visible)
-      BreakEvenCalculator.tsx Owned-vs-rented calculator, seeded with real numbers (React island)
-  styles/global.css           Aurora design tokens (@theme), gradient, glow, dot-grid, fig/mono helpers
+      MeshTopology.tsx        Animated topology, TWO MODES: mode="premium" (chain GB10 units to 405B) | mode="sovereign" (mesh old+new hardware). React island.
+      BuildVsRent.tsx         Workload-preset build-vs-cloud estimator with display break-even + 0–36mo timeline. React island.
+    Figure.astro               Product image plate + Fig. caption (hardware in public/images/hardware/)
+  styles/global.css           Aurora design tokens (@theme), self-hosted fonts, gradient, glow, dot-grid, fig/mono helpers
 public/
-  CNAME (auroranyxus.com), robots.txt, favicon.svg (aurora arc over nexus)
-docs/                         brand/ (DESIGN, voice), adr/, strategy/ (positioning), plans/ (gitignored)
+  images/hardware/ (fig-01…06.webp), fonts/, CNAME, robots.txt, favicon.svg
+docs/                         brand/ (DESIGN, IMAGE-STYLE, voice), adr/, strategy/ (positioning), plans/ (gitignored)
 ```
+
+## Two tracks (important)
+
+The site is organised into two tracks with distinct audiences and narratives. Do NOT mix them:
+- **Workstations (Track 1, green):** premium, high-performance, scalable. GB10 / DGX Spark, chain units over ConnectX-7 for 405B-class frontier models (GLM 5.2, DeepSeek v4). "Meshing as scaling up." Segments: labs, quant, studios, enterprise.
+- **Mesh Compute (Track 2, violet):** scrappy, sovereign, resourceful. Mesh old + new hardware into owned Canadian capacity. Physical custody, CLOUD-Act-free. Segments: government, Indigenous data. The "scrappy-by-design" narrative lives HERE, not on Workstations.
 
 ## Colour language
 

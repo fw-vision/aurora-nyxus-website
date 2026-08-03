@@ -1,0 +1,123 @@
+---
+import Main from "../layouts/Main.astro";
+import PageHeader from "../components/PageHeader.astro";
+import StepCard from "../components/StepCard.astro";
+import MeshTopology from "../components/widgets/MeshTopology.tsx";
+---
+
+<Main title="Mesh Compute - Aurora Nyxus" description="Sovereign, owned Canadian AI capacity meshed from old and new hardware. CLOUD-Act-free, physical custody. For government, Indigenous data sovereignty, and sensitive workloads. In partnership with DAI Compute.">
+  <PageHeader
+    eyebrow="Mesh Compute"
+    title="Sovereign capacity, meshed and owned"
+    lede="Canada sits low in the global hardware queue. We mesh old and new hardware into owned Canadian capacity, on soil you trust. Custody is the assurance."
+    accent="violet"
+    bgSrc="/images/hardware/hero-bg-mesh.webp"
+    bgAlt="Meshed compute nodes in a dark studio"
+  >
+    <a
+      href="/contact"
+      class="inline-block rounded-sm border border-aurora-violet/50 bg-aurora-violet/10 px-5 py-2.5 font-mono text-sm font-medium text-aurora-violet transition-colors hover:bg-aurora-violet/20"
+    >
+      Discuss a deployment
+    </a>
+  </PageHeader>
+
+  <section class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="mono-label mb-4 text-aurora-violet">Scrappy by design</p>
+        <h2 class="font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
+          Mesh what Canada can get into what you need
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          The US buys the newest hardware first; Canada waits. We build around
+          it. Mesh a new RTX 5090 node with older cards into one addressable
+          pool. Start with one node, prove the mesh, scale the cluster.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Resourcefulness is the point. Sovereign capacity should not wait on a
+          supply queue.
+        </p>
+      </div>
+      <MeshTopology mode="sovereign" client:visible />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="mono-label mb-4 text-aurora-violet">The exposure</p>
+        <h2 class="font-display text-2xl font-medium leading-tight text-ink sm:text-3xl">
+          Foreign infrastructure is a governance risk
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          The US-to-Canada compute ratio is roughly 100 to one. Data centres in
+          Quebec and Ontario are largely US-owned. Under the US CLOUD Act,
+          American authorities can compel access, even on Canadian soil.
+        </p>
+      </div>
+      <div>
+        <p class="mono-label mb-4 text-aurora-green">The answer</p>
+        <h2 class="font-display text-2xl font-medium leading-tight text-ink sm:text-3xl">
+          Custody you can point to
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          For some work, secure has a physical definition: the box is in your
+          building, under your control. We deploy meshed sovereign systems where
+          custody, not a contract clause, is the assurance.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <h2 class="font-display mb-10 text-3xl font-medium text-ink">Who we deploy for</h2>
+    <div class="grid gap-px border border-hairline bg-hairline md:grid-cols-2">
+      <a href="/mesh-compute/government" class="group bg-canvas p-8 transition-colors hover:bg-surface/40 sm:p-10">
+        <p class="mono-label mb-2 text-aurora-green">Government</p>
+        <h3 class="font-display text-xl font-medium text-ink">Public sector & dual-use</h3>
+        <p class="mt-3 text-sm text-graphite">CLOUD-Act-free, Canadian custody, auditable.</p>
+        <p class="mt-4 font-mono text-xs text-aurora-green group-hover:underline">Details →</p>
+      </a>
+      <a href="/mesh-compute/indigenous-data" class="group bg-canvas p-8 transition-colors hover:bg-surface/40 sm:p-10">
+        <p class="mono-label mb-2 text-signal">Indigenous data</p>
+        <h3 class="font-display text-xl font-medium text-ink">Data sovereignty</h3>
+        <p class="mt-3 text-sm text-graphite">Physical custody, OCAP-aligned governance.</p>
+        <p class="mt-4 font-mono text-xs text-signal group-hover:underline">Details →</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <h2 class="font-display mb-12 text-3xl font-medium text-ink">How a deployment works</h2>
+    <div class="grid gap-10 sm:grid-cols-3">
+      <StepCard step="1" title="Scope" accent="violet">Assess the workload, the data-residency requirement, and the custody model.</StepCard>
+      <StepCard step="2" title="Build & mesh" accent="violet">Build the nodes; mesh available hardware; deploy on-prem.</StepCard>
+      <StepCard step="3" title="Verify & hand over" accent="violet">Verifiable custody, documented security posture, ongoing support.</StepCard>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <div class="border border-hairline bg-surface/40 p-8 sm:p-12">
+      <p class="mono-label mb-4 text-aurora-green">Partnership</p>
+      <h2 class="font-display text-2xl font-medium text-ink sm:text-3xl">
+        Sovereignty and financing with <span style="color:#FF6A1A">DAI</span>Compute
+      </h2>
+      <p class="mt-5 max-w-3xl text-base leading-relaxed text-graphite">
+        Aurora Nyxus builds and meshes the hardware.
+        <a href="https://daicompute.ca" target="_blank" rel="noopener noreferrer" class="hover:underline"><span style="color:#FF6A1A">DAI</span><span class="text-ink">Compute</span></a>
+        provides the sovereignty framing and infrastructure-finance layer.
+        Together: capacity that is owned, financed, and verifiable on Canadian
+        soil under Canadian law.
+      </p>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 pb-24 pt-8 sm:pb-32">
+    <div class="border border-hairline bg-surface/40 px-8 py-14 sm:px-12 sm:py-16">
+      <h2 class="font-display text-3xl font-medium text-ink">Own your capacity.</h2>
+      <p class="mt-3 max-w-xl text-graphite">Talk to us about a sovereign deployment.</p>
+      <a href="/contact" class="mt-8 inline-block rounded-sm border border-aurora-violet/50 bg-aurora-violet/10 px-6 py-3 font-mono text-sm font-medium text-aurora-violet transition-colors hover:bg-aurora-violet/20">Discuss a deployment</a>
+    </div>
+  </section>
+</Main>

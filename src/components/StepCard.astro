@@ -5,13 +5,19 @@
 export interface Props {
   step: string;
   title: string;
+  accent?: "green" | "violet" | "signal";
 }
-const { step, title } = Astro.props;
+const { step, title, accent = "green" } = Astro.props;
+const chrome = {
+  green: "border-aurora-green/40 bg-aurora-green/10 text-aurora-green",
+  violet: "border-aurora-violet/40 bg-aurora-violet/10 text-aurora-violet",
+  signal: "border-signal/40 bg-signal/10 text-signal",
+}[accent];
 ---
 
 <div class="flex gap-4">
   <div
-    class="flex h-9 w-9 shrink-0 items-center justify-center border border-aurora-green/40 bg-aurora-green/10 font-mono text-sm font-medium text-aurora-green"
+    class={`flex h-9 w-9 shrink-0 items-center justify-center border font-mono text-sm font-medium ${chrome}`}
   >
     {step}
   </div>

@@ -1,12 +1,7 @@
 ---
 /**
- * Aurora Nyxus business card. Dark, precision-engineering style (not the light
- * editorial syncidlabs card): near-black surface, mono contact block, aurora
- * accent rule down the left edge, "Fig." engineering framing. Standard card
- * ratio 3.5 x 2.
- *
- * Style is tuned to the target audience (engineers, quants, lab leads, gov):
- * technical, terse, confident. Contact is mailto/tel only (static site).
+ * Aurora Nyxus business card. Dark precision card, accent rule, QR top-right.
+ * Standard ratio 3.5 x 2. Original layout restored.
  */
 export interface Props {
   name: string;
@@ -15,7 +10,6 @@ export interface Props {
   phone?: string;
   handle?: string;
   org?: string;
-  fig?: string;
   slogan?: string;
   accent?: "green" | "violet" | "signal";
 }
@@ -26,7 +20,6 @@ const {
   phone,
   handle,
   org = "Aurora Nyxus",
-  fig,
   slogan = "Compute you own.",
   accent = "green",
 } = Astro.props;
@@ -36,6 +29,12 @@ const accentVar = {
   violet: "var(--color-aurora-violet)",
   signal: "var(--color-signal)",
 }[accent];
+
+const qrSrc = {
+  green: "/images/qr-auroranyxus-green.svg",
+  violet: "/images/qr-auroranyxus-violet.svg",
+  signal: "/images/qr-auroranyxus-signal.svg",
+}[accent];
 ---
 
 <article class="an-card" style={`--card-accent: ${accentVar};`}>
@@ -43,32 +42,48 @@ const accentVar = {
 
   <div class="an-card__top">
     <div class="min-w-0">
-      <p class="font-display text-[11px] font-semibold tracking-tight text-ink sm:text-xs">
+      <p class="an-card__wordmark">
         Aurora<span style={`color: ${accentVar};`}>Nyxus</span>
       </p>
       <p class="an-card__slogan">{slogan}</p>
     </div>
-    {fig && <p class="fig-label shrink-0">{fig}</p>}
+    <a
+      href="https://auroranyxus.com"
+      class="an-card__qr"
+      aria-label="auroranyxus.com"
+      title="auroranyxus.com"
+    >
+      <img
+        src={qrSrc}
+        alt="QR code to auroranyxus.com"
+        width="128"
+        height="128"
+        loading="lazy"
+      />
+    </a>
   </div>
 
   <div class="an-card__id">
-    <h3 class="font-display text-base font-medium leading-tight text-ink sm:text-lg">
-      {name}
-    </h3>
-    <p class="mt-0.5 font-mono text-[11px] text-graphite sm:text-xs">{role}</p>
+    <h3 class="an-card__name">{name}</h3>
+    <p class="an-card__role">{role}</p>
   </div>
 
   <div class="an-card__contact">
-    <div class="min-w-0 font-mono text-[10px] leading-relaxed text-graphite sm:text-[11px]">
+    <div class="an-card__contact-block">
       <p class="font-medium text-ink">{org}</p>
       <a href={`mailto:${email}`} class="block hover:text-ink" style={`color: ${accentVar};`}>
         {email}
       </a>
-      {phone && (
-        <a href={`tel:${phone.replace(/[^0-9+]/g, "")}`} class="block hover:text-ink">
-          {phone}
-        </a>
-      )}
+      {
+        phone && (
+          <a
+            href={`tel:${phone.replace(/[^0-9+]/g, "")}`}
+            class="block hover:text-ink"
+          >
+            {phone}
+          </a>
+        )
+      }
       {handle && <p class="text-muted">{handle}</p>}
     </div>
   </div>
@@ -108,12 +123,49 @@ const accentVar = {
     justify-content: space-between;
     gap: 0.75rem;
   }
+  .an-card__wordmark {
+    font-family: var(--font-brand);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--color-ink);
+  }
   .an-card__slogan {
-    margin-top: 0.15rem;
+    margin-top: 0.2rem;
     font-family: var(--font-mono);
-    font-size: 9px;
+    font-size: 0.625rem;
     letter-spacing: 0.06em;
     color: var(--color-muted);
+  }
+  .an-card__qr {
+    flex-shrink: 0;
+    display: block;
+    width: 5.25rem;
+    height: 5.25rem;
+    border: 1px solid var(--color-hairline);
+    /* Solid plate so card glow cannot wash out modules */
+    background: #0a0c10;
+    padding: 0.35rem;
+  }
+  .an-card__qr img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+  }
+  .an-card__name {
+    font-family: var(--font-display);
+    font-size: 1.0625rem;
+    font-weight: 500;
+    line-height: 1.15;
+    color: var(--color-ink);
+  }
+  .an-card__role {
+    margin-top: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--color-graphite);
   }
   .an-card__contact {
     display: flex;
@@ -121,9 +173,36 @@ const accentVar = {
     justify-content: space-between;
     gap: 0.75rem;
   }
+  .an-card__contact-block {
+    min-width: 0;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    line-height: 1.55;
+    color: var(--color-graphite);
+  }
   @media (min-width: 640px) {
     .an-card {
       padding: 1.25rem 1.35rem 1.25rem 1.5rem;
+    }
+    .an-card__wordmark {
+      font-size: 1.05rem;
+    }
+    .an-card__slogan {
+      font-size: 0.6875rem;
+    }
+    .an-card__name {
+      font-size: 1.125rem;
+    }
+    .an-card__role {
+      font-size: 0.75rem;
+    }
+    .an-card__contact-block {
+      font-size: 0.6875rem;
+    }
+    .an-card__qr {
+      width: 6rem;
+      height: 6rem;
+      padding: 0.4rem;
     }
   }
 </style>

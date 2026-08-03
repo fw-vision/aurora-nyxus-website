@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Wordmark from "../components/Wordmark.astro";
+import PartnersBanner from "../components/PartnersBanner.astro";
 
 export interface Props {
   title?: string;
@@ -14,10 +15,19 @@ const {
 
 const nav = [
   { href: "/workstations", label: "Workstations" },
-  { href: "/sovereign", label: "Sovereign" },
+  { href: "/mesh-compute", label: "Mesh Compute" },
   { href: "/why-owned", label: "Why Owned" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+];
+
+const partners = [
+  {
+    id: "dai",
+    name: "DAI Compute",
+    href: "https://daicompute.ca",
+    role: "Sovereignty & finance",
+  },
 ];
 
 const year = new Date().getFullYear();
@@ -77,31 +87,12 @@ const year = new Date().getFullYear();
     </main>
 
     <!-- Partnerships banner -->
-    <section class="border-t border-hairline bg-surface/40">
-      <div class="mx-auto max-w-6xl px-5 py-10">
-        <p class="fig-label mb-6 text-center">In partnership with</p>
-        <div
-          class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6"
-        >
-          <a
-            href="https://daicompute.ca"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="font-display text-sm font-medium text-graphite transition-colors hover:text-ink"
-          >
-            DAI Compute
-          </a>
-          <span class="font-display text-sm font-medium text-graphite/50"
-            >Aurora</span
-          >
-          <span class="mono-label text-muted">+ partners</span>
-        </div>
-        <p class="mt-6 text-center text-xs text-muted">
-          Nominative association. Sovereignty and infrastructure-finance
-          collaboration with DAI Compute (daicompute.ca).
-        </p>
-      </div>
-    </section>
+    <div class="border-t border-hairline bg-surface/40">
+      <PartnersBanner
+        items={partners}
+        heading="In partnership with"
+      />
+    </div>
 
     <!-- Footer -->
     <footer class="border-t border-hairline bg-canvas">
@@ -116,15 +107,15 @@ const year = new Date().getFullYear();
           </p>
         </div>
         <div>
-          <p class="fig-label mb-3">Build</p>
+          <p class="mono-label mb-3 text-muted">Build</p>
           <ul class="space-y-2 text-sm text-graphite">
             <li><a href="/workstations" class="hover:text-ink">Workstations</a></li>
-            <li><a href="/sovereign" class="hover:text-ink">Sovereign deployment</a></li>
+            <li><a href="/mesh-compute" class="hover:text-ink">Mesh Compute</a></li>
             <li><a href="/why-owned" class="hover:text-ink">Why owned</a></li>
           </ul>
         </div>
         <div>
-          <p class="fig-label mb-3">Company</p>
+          <p class="mono-label mb-3 text-muted">Company</p>
           <ul class="space-y-2 text-sm text-graphite">
             <li><a href="/about" class="hover:text-ink">About</a></li>
             <li><a href="/contact" class="hover:text-ink">Contact</a></li>

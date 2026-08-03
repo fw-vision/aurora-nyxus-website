@@ -2,7 +2,6 @@
 import Main from "../../layouts/Main.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import SpecTable from "../../components/SpecTable.astro";
-import FeatureCard from "../../components/FeatureCard.astro";
 
 const rows = [
   { workload: "Training / fine-tuning", note: "neural nets, transformers", gpu: "multi-GPU RTX 6000-class", vram: "48 GB+", memory: "128-512 GB" },
@@ -13,27 +12,40 @@ const rows = [
 
 <Main title="AI Workstations for Research Labs - Aurora Nyxus" description="Multi-GPU AI workstations for universities and R&D: high VRAM, sustained-load stability, CUDA-ready, scalable.">
   <PageHeader
-    eyebrow="Workstations / Research labs"
+    eyebrow="Research labs"
     title="Compute that keeps up with the research"
-    lede="For university labs and corporate R&D training and fine-tuning models. High VRAM, thermal stability under long runs, a clean CUDA and Docker stack, and headroom to add GPUs as the work grows."
-    glow
-    fig="Fig. — Research labs"
+    lede="High VRAM, thermal stability under long runs, a clean CUDA and Docker stack, and headroom to add GPUs as the work grows."
+    accent="green"
+    bgSrc="/images/hardware/hero-bg-macro.webp"
+    bgAlt="Chassis detail for sustained-load research compute"
   />
 
-  <section class="mx-auto max-w-6xl px-5 py-10">
-    <h2 class="font-display mb-5 text-2xl font-medium text-ink">Typical configurations</h2>
-    <SpecTable rows={rows} caption="Specced to your training frameworks and dataset scale. Multi-GPU stability and cooling are the priorities for sustained research loads." />
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <h2 class="font-display mb-8 text-3xl font-medium text-ink">Typical configurations</h2>
+    <SpecTable rows={rows} caption="Specced to your training frameworks and dataset scale." />
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 py-10">
-    <div class="grid gap-5 sm:grid-cols-3">
-      <FeatureCard title="VRAM with headroom" index="01" accent="green">Sized so you are not re-buying in six months as models grow.</FeatureCard>
-      <FeatureCard title="Sustained-load stable" index="02" accent="signal">Power delivery, airflow, and driver consistency tuned for long training runs.</FeatureCard>
-      <FeatureCard title="Scales up" index="03" accent="violet">Add GPUs or mesh a second node as the lab's needs grow.</FeatureCard>
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <div class="grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
+      <div class="bg-canvas p-7 sm:p-8">
+        <p class="mono-label mb-3 text-aurora-green">01</p>
+        <h3 class="font-display text-lg font-medium text-ink">VRAM with headroom</h3>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">Sized so you are not re-buying in six months as models grow.</p>
+      </div>
+      <div class="bg-canvas p-7 sm:p-8">
+        <p class="mono-label mb-3 text-signal">02</p>
+        <h3 class="font-display text-lg font-medium text-ink">Sustained-load stable</h3>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">Power, airflow, and drivers tuned for long training runs.</p>
+      </div>
+      <div class="bg-canvas p-7 sm:p-8">
+        <p class="mono-label mb-3 text-aurora-violet">03</p>
+        <h3 class="font-display text-lg font-medium text-ink">Scales up</h3>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">Add GPUs or mesh a second node as the lab grows.</p>
+      </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+  <section class="mx-auto max-w-6xl px-5 pb-24 pt-8 sm:pb-32">
     <a href="/contact#request-a-build" class="inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-6 py-3 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20">Request a lab build</a>
   </section>
 </Main>

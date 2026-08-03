@@ -17,5 +17,5 @@ rationed to hero moments and key rules.
 ## Consequences
 - No light backgrounds without strong reason; no RGB gamer aesthetic.
 - The aurora gradient is the one colour-drama moment; overuse dilutes it.
-- Space Grotesk (display) + IBM Plex Mono (technical). Numbers act as display elements.
+- Syne (brand/wordmark) + Inter (display; open stand-in for ABC Diatype) + IBM Plex Mono (technical). Numbers act as display elements.
 - Colour language: green = owned/workstations, violet = sovereign, cyan = signal.

@@ -7,7 +7,7 @@ gamer-RGB. Read before any UI work.
 ## 1. Design posture
 
 - **Dark-first.** Near-black canvas carries the weight; content and accents pop.
-- **Engineering seriousness.** Monospace for specs, labels, tickers, captions. "Fig. N" framing on figures. Telemetry-style detail.
+- **Engineering seriousness.** Monospace for specs, labels, tickers. Product imagery over caption theatre. Telemetry-style detail.
 - **Terse and confident.** Short lines; big technical numbers as display elements.
 - **Aurora signature.** The northern-lights gradient (green -> cyan -> violet) is the one moment of colour drama. Ration it.
 
@@ -33,23 +33,27 @@ gamer-RGB. Read before any UI work.
 
 ## 4. Typography
 
-- **Display:** Space Grotesk (headlines, wordmark). Tight, confident.
-- **Mono:** IBM Plex Mono (specs, labels, tickers, captions, contact blocks, code).
-- Currently loaded via Google Fonts `@import` in `global.css`; a `docs/plans/` handoff will self-host.
+- **Brand / wordmark:** Syne (geometric personality on logo and cards).
+- **Display:** Inter (self-hosted). Open substitute for commercial ABC Diatype as used by Intercom / Replit.
+- **Mono:** IBM Plex Mono (specs, labels, tickers, contact).
+- Self-hosted via `@font-face` in `global.css` (`public/fonts/` woff2).
 - **Numerals:** let big technical figures (VRAM, cost, break-even) act as display elements.
 
 ## 5. Components (inventory)
 
 - `Wordmark` - Aurora + Nyxus (aurora-accent on "Nyxus").
-- `PageHeader` - eyebrow (mono, accent) + display title + lede + optional `.aurora-glow` + `Fig.` label.
-- `FeatureCard` - hairline box, mono index, accent-tinted; slot body.
-- `StepCard` - numbered process step (Spec/Build/Own).
-- `SpecTable` - workload -> GPU/VRAM/memory matrix (the Alpha PC beater; darker, mono).
-- `Placeholder` - dashed dot-grid frame; note encodes the build brief.
-- `PartnersBanner` - hairline logo grid; DAI Compute anchor; nominative-association note.
-- `BusinessCard` - dark precision card, aurora accent rule, mono contact (mailto/tel), `Fig.` label, accent variant per person.
-- `widgets/MeshTopology.tsx` - animated node -> two-node mesh -> cluster (SVG + rAF pulse).
-- `widgets/BreakEvenCalculator.tsx` - owned-vs-rented sliders, seeded with real numbers.
+- `PageHeader` - eyebrow (mono, track accent) + display title + lede; optional full-bleed `bgSrc` hero; optional media band.
+- `Figure` - product image plate + optional aurora glow. Hardware in `public/images/hardware/`. No fig captions.
+- `FeatureCard` - hairline box; prefer open hairline grids for static values.
+- `StepCard` - numbered process step; track-aware accent.
+- `SpecTable` - workload -> GPU/VRAM/memory matrix.
+- `Placeholder` - dashed frame for planned gaps (prefer Figure when assets exist).
+- `PartnersBanner` - partner strip; centers when few partners.
+- `BusinessCard` - dark precision card, QR to auroranyxus.com, aurora accent rule.
+- `widgets/MeshTopology.tsx` - animated topology (premium | sovereign).
+- `widgets/BuildVsRent.tsx` - workload-preset estimator with break-even timeline.
+
+Hardware image style: see `docs/brand/IMAGE-STYLE.md`. Do not ship "Fig. N" director captions on public pages.
 
 ## 6. Motion
 

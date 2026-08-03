@@ -1,76 +1,154 @@
 ---
 import Main from "../layouts/Main.astro";
 import PageHeader from "../components/PageHeader.astro";
+import Figure from "../components/Figure.astro";
 import SpecTable from "../components/SpecTable.astro";
-import FeatureCard from "../components/FeatureCard.astro";
+import MeshTopology from "../components/widgets/MeshTopology.tsx";
 
 const rows = [
   { workload: "Local LLM inference", note: "7B-32B, quantized", gpu: "RTX 5090", vram: "24 GB", memory: "64-128 GB" },
-  { workload: "Model training / fine-tune", note: "multi-GPU", gpu: "RTX 6000-class / multi-5090", vram: "48 GB+", memory: "128-512 GB" },
-  { workload: "Diffusion / generative", note: "image, video", gpu: "RTX 5090 / 4090", vram: "16-24 GB+", memory: "64 GB+" },
   { workload: "Agentic workflows", note: "24/7 automation", gpu: "RTX 5090", vram: "24 GB", memory: "64-128 GB" },
-  { workload: "Mesh / mixed", note: "old + new, pooled", gpu: "5090 + 6900 XT + RX 580", vram: "pooled", memory: "per node" },
+  { workload: "Large-model inference", note: "up to 200B params", gpu: "GB10 / DGX Spark", vram: "128 GB unified", memory: "128 GB" },
+  { workload: "Frontier models", note: "up to 405B, chained", gpu: "GB10 x2 (ConnectX-7)", vram: "256 GB unified", memory: "256 GB" },
+  { workload: "Training / fine-tune", note: "multi-GPU", gpu: "RTX 6000-class / multi", vram: "48 GB+", memory: "128-512 GB" },
 ];
 ---
 
-<Main title="Workstations - Aurora Nyxus" description="Premium custom AI workstations built in Canada: research labs, quant desks, studios. Specced to your workload, stress-tested, supported.">
+<Main title="Workstations - Aurora Nyxus" description="Premium high-performance AI workstations: RTX 5090 to GB10 / DGX Spark. Chain units over ConnectX-7 for 405B-class frontier models. Built in Canada, scalable.">
   <PageHeader
-    eyebrow="Door 1"
-    title="Premium AI workstations, built in Canada"
-    lede="Custom multi-GPU compute specced to your workload. Not a gaming rig with a sticker: engineered for sustained load, stress-tested, and supported. This is the cash-and-credibility engine, and the proof we can build what the sovereign work demands."
-    glow
-    fig="Fig. — Workstations"
-  />
+    eyebrow="Workstations"
+    title="High-performance AI compute that scales with you"
+    lede="From RTX 5090 workstations to GB10 / DGX Spark systems that chain to frontier scale. Engineered for sustained load, specced to your models, built to grow."
+    accent="green"
+    bgSrc="/images/hardware/hero-bg-workstation.webp"
+    bgAlt="Premium AI workstation in a dark studio"
+  >
+    <a
+      href="/contact#request-a-build"
+      class="inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-5 py-2.5 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20"
+    >
+      Request a build
+    </a>
+  </PageHeader>
 
-  <!-- Spec matrix -->
-  <section class="mx-auto max-w-6xl px-5 py-10">
-    <h2 class="font-display mb-5 text-2xl font-medium text-ink">
-      Match hardware to workload
-    </h2>
+  <section class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <div>
+        <p class="mono-label mb-4 text-aurora-green">Frontier scale on your desk</p>
+        <h2 class="font-display text-3xl font-medium leading-tight text-ink sm:text-4xl">
+          Chain GB10 units to run 405B-class models
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          A single GB10 / DGX Spark unit delivers up to 1 PetaFLOP of FP4
+          compute and 128 GB of coherent unified memory. Link two units over
+          ConnectX-7 at 200 Gbps and run models up to 405 billion parameters.
+          Near-silent, 240W per unit, desktop-sized.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-graphite">
+          Buy the capability you need now. Add units as models grow. No forklift
+          upgrade, no re-buy.
+        </p>
+      </div>
+      <div class="space-y-6">
+        <Figure
+          src="/images/hardware/fig-02-chain-pair.webp"
+          alt="Two chained workstation nodes with interconnect"
+          aspect="photo"
+        />
+        <MeshTopology mode="premium" client:visible />
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+      <Figure
+        src="/images/hardware/fig-03-chassis-detail.webp"
+        alt="Close-up of matte black chassis cooling and ports"
+        aspect="photo"
+      />
+      <div>
+        <p class="mono-label mb-4 text-aurora-green">Built for sustained load</p>
+        <h2 class="font-display text-3xl font-medium leading-tight text-ink">
+          Engineering over theatre
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          Panel gaps, airflow, and power delivery tuned for long runs. Status
+          LEDs, not RGB. Specced to the model; stress-tested before it ships.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <h2 class="font-display mb-3 text-3xl font-medium text-ink">Specifications</h2>
+    <p class="mb-8 max-w-2xl text-graphite">Match hardware to workload.</p>
     <SpecTable
       rows={rows}
-      caption="Guidance only. Final spec depends on model size, quantization, context length, cooling, power, and availability. Tell us the workload; we send a build spec with headroom."
+      caption="Guidance only. Frontier configs chain GB10 / DGX Spark units over ConnectX-7. Final spec depends on model size, quantization, context length, throughput, cooling, and availability."
     />
   </section>
 
-  <!-- Segments -->
-  <section class="mx-auto max-w-6xl px-5 py-10">
-    <h2 class="font-display mb-6 text-2xl font-medium text-ink">
-      Built for your work
-    </h2>
-    <div class="grid gap-px border border-hairline bg-hairline md:grid-cols-3">
-      <a href="/workstations/research-labs" class="group bg-canvas p-7 transition-colors hover:bg-surface/40">
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <h2 class="font-display mb-10 text-3xl font-medium text-ink">Built for your work</h2>
+    <div class="grid gap-px border border-hairline bg-hairline md:grid-cols-2 lg:grid-cols-4">
+      <a href="/workstations/research-labs" class="group bg-canvas p-7 transition-colors hover:bg-surface/40 sm:p-8">
         <p class="mono-label mb-2 text-aurora-green">Research labs</p>
         <h3 class="font-display text-lg font-medium text-ink">Universities & R&D</h3>
-        <p class="mt-2 text-sm text-graphite">High VRAM, sustained-load stability, CUDA-ready, room to scale.</p>
-        <p class="mt-3 font-mono text-xs text-aurora-green group-hover:underline">Details →</p>
+        <p class="mt-2 text-sm text-graphite">High VRAM, sustained-load stability, scale-up path.</p>
+        <p class="mt-4 font-mono text-xs text-aurora-green group-hover:underline">Details →</p>
       </a>
-      <a href="/workstations/quant-finance" class="group bg-canvas p-7 transition-colors hover:bg-surface/40">
+      <a href="/workstations/quant-finance" class="group bg-canvas p-7 transition-colors hover:bg-surface/40 sm:p-8">
         <p class="mono-label mb-2 text-signal">Quant & finance</p>
         <h3 class="font-display text-lg font-medium text-ink">Funds & trading</h3>
-        <p class="mt-2 text-sm text-graphite">Owned, private, low-latency compute. Discretion and track record.</p>
-        <p class="mt-3 font-mono text-xs text-signal group-hover:underline">Details →</p>
+        <p class="mt-2 text-sm text-graphite">Owned, private, low-latency compute.</p>
+        <p class="mt-4 font-mono text-xs text-signal group-hover:underline">Details →</p>
       </a>
-      <a href="/workstations/studios" class="group bg-canvas p-7 transition-colors hover:bg-surface/40">
+      <a href="/workstations/studios" class="group bg-canvas p-7 transition-colors hover:bg-surface/40 sm:p-8">
         <p class="mono-label mb-2 text-aurora-violet">Studios</p>
         <h3 class="font-display text-lg font-medium text-ink">Creative & media</h3>
-        <p class="mt-2 text-sm text-graphite">Throughput for generative pipelines, reliable under long renders.</p>
-        <p class="mt-3 font-mono text-xs text-aurora-violet group-hover:underline">Details →</p>
+        <p class="mt-2 text-sm text-graphite">Throughput for generative pipelines.</p>
+        <p class="mt-4 font-mono text-xs text-aurora-violet group-hover:underline">Details →</p>
+      </a>
+      <a href="/workstations/enterprise" class="group bg-canvas p-7 transition-colors hover:bg-surface/40 sm:p-8">
+        <p class="mono-label mb-2 text-aurora-green">Enterprise</p>
+        <h3 class="font-display text-lg font-medium text-ink">Regulated industries</h3>
+        <p class="mt-2 text-sm text-graphite">Air-gapped, compliance-ready, own the stack.</p>
+        <p class="mt-4 font-mono text-xs text-aurora-green group-hover:underline">Details →</p>
       </a>
     </div>
   </section>
 
-  <!-- What you get -->
-  <section class="mx-auto max-w-6xl px-5 py-10">
-    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      <FeatureCard title="Workload-specced" index="01" accent="green">VRAM, cores, and cooling matched to what you actually run.</FeatureCard>
-      <FeatureCard title="Stress-tested" index="02" accent="signal">Sustained-load testing before it ships. Stable under long runs.</FeatureCard>
-      <FeatureCard title="Linux-first" index="03" accent="violet">Ubuntu + CUDA + Docker ready; Windows on request.</FeatureCard>
-      <FeatureCard title="Supported" index="04" accent="green">We stand behind the build. No finger-pointing.</FeatureCard>
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <div class="grid gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
+      <div class="bg-canvas p-7">
+        <p class="mono-label mb-3 text-aurora-green">01</p>
+        <h3 class="font-display text-lg font-medium text-ink">Frontier-capable</h3>
+        <p class="mt-2 text-sm leading-relaxed text-graphite">Chain GB10 units for 405B-class models.</p>
+      </div>
+      <div class="bg-canvas p-7">
+        <p class="mono-label mb-3 text-signal">02</p>
+        <h3 class="font-display text-lg font-medium text-ink">Stress-tested</h3>
+        <p class="mt-2 text-sm leading-relaxed text-graphite">Sustained-load testing before it ships.</p>
+      </div>
+      <div class="bg-canvas p-7">
+        <p class="mono-label mb-3 text-aurora-violet">03</p>
+        <h3 class="font-display text-lg font-medium text-ink">Scales with you</h3>
+        <p class="mt-2 text-sm leading-relaxed text-graphite">Add units over ConnectX-7 as models grow.</p>
+      </div>
+      <div class="bg-canvas p-7">
+        <p class="mono-label mb-3 text-aurora-green">04</p>
+        <h3 class="font-display text-lg font-medium text-ink">Supported</h3>
+        <p class="mt-2 text-sm leading-relaxed text-graphite">We stand behind the build.</p>
+      </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
-    <a href="/contact#request-a-build" class="inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-6 py-3 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20">Request a build</a>
+  <section class="mx-auto max-w-6xl px-5 pb-24 pt-8 sm:pb-32">
+    <div class="border border-hairline bg-surface/40 px-8 py-14 sm:px-12 sm:py-16">
+      <h2 class="font-display text-3xl font-medium text-ink">Own your workstation.</h2>
+      <p class="mt-3 max-w-xl text-graphite">Talk to us about the models you need to run.</p>
+      <a href="/contact#request-a-build" class="mt-8 inline-block rounded-sm border border-aurora-green/50 bg-aurora-green/10 px-6 py-3 font-mono text-sm font-medium text-aurora-green transition-colors hover:bg-aurora-green/20">Request a build</a>
+    </div>
   </section>
 </Main>

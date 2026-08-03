@@ -23,7 +23,7 @@ visual-finetuning handoffs live in `docs/plans/` (gitignored).
 
 **Dark, precision-engineering** (Oxide Computer reference class) on an aurora
 palette: near-black `#0a0c10` canvas with an aurora-green `#3ff5a5` -> cyan
-`#34d2ff` -> violet `#a06bff` signature gradient. Space Grotesk + IBM Plex Mono.
+`#34d2ff` -> violet `#a06bff` signature gradient. Syne (brand) + Inter (display; ABC Diatype stand-in) + IBM Plex Mono.
 Full spec: `docs/brand/DESIGN.md`.
 
 ## Pages

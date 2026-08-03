@@ -1,0 +1,46 @@
+---
+/**
+ * Product image plate. Optional aurora glow. No figure captions.
+ */
+export interface Props {
+  src: string;
+  alt: string;
+  glow?: boolean;
+  priority?: boolean;
+  aspect?: "video" | "photo" | "square" | "auto";
+  class?: string;
+}
+const {
+  src,
+  alt,
+  glow = false,
+  priority = false,
+  aspect = "video",
+  class: className = "",
+} = Astro.props;
+
+const aspectClass = {
+  video: "aspect-video",
+  photo: "aspect-[4/3]",
+  square: "aspect-square",
+  auto: "",
+}[aspect];
+---
+
+<figure class:list={["relative", glow && "aurora-glow", className]}>
+  <div
+    class:list={[
+      "relative z-10 overflow-hidden border border-hairline bg-surface",
+      aspectClass,
+    ]}
+  >
+    <img
+      src={src}
+      alt={alt}
+      class="h-full w-full object-cover"
+      loading={priority ? "eager" : "lazy"}
+      decoding="async"
+      fetchpriority={priority ? "high" : "auto"}
+    />
+  </div>
+</figure>

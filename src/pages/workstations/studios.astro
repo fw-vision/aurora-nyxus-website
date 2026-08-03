@@ -1,47 +1,59 @@
 ---
 import Main from "../../layouts/Main.astro";
 import PageHeader from "../../components/PageHeader.astro";
-import FeatureCard from "../../components/FeatureCard.astro";
 ---
 
-<Main title="AI Workstations for Studios - Aurora Nyxus" description="High-throughput AI workstations for design, VFX, and media studios running generative pipelines. Reliable under long renders.">
+<Main title="AI Workstations for Studios - Aurora Nyxus" description="High-throughput AI workstations for design, VFX, and media studios running generative pipelines.">
   <PageHeader
-    eyebrow="Workstations / Studios"
+    eyebrow="Studios"
     title="Throughput for the generative studio"
-    lede="For design, VFX, and media studios running Stable Diffusion and local generative pipelines. Fast GPUs, real cooling, and reliability under long renders, in a box built to sit in a working studio."
-    glow
-    fig="Fig. — Studios"
+    lede="Fast GPUs, real cooling, and reliability under long renders, in a box built to sit in a working studio."
+    accent="violet"
+    bgSrc="/images/hardware/hero-bg-macro.webp"
+    bgAlt="Hardware detail for studio generative workloads"
   />
 
-  <section class="mx-auto max-w-6xl px-5 py-10">
-    <div class="grid gap-8 lg:grid-cols-2">
+  <section class="mx-auto max-w-6xl px-5 py-20 sm:py-28">
+    <div class="grid gap-12 lg:grid-cols-2 lg:gap-16">
       <div>
-        <h2 class="font-display text-2xl font-medium text-ink">Built for the render queue</h2>
-        <p class="mt-4 text-base leading-relaxed text-graphite">
+        <h2 class="font-display text-2xl font-medium text-ink sm:text-3xl">Built for the render queue</h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
           Generative pipelines punish weak cooling and thin power delivery. We
-          spec for sustained throughput: fast GPU, ample VRAM for the model and
-          resolution you work at, and thermals tuned for back-to-back jobs.
+          spec for sustained throughput: fast GPU, ample VRAM, thermals tuned
+          for back-to-back jobs.
         </p>
       </div>
       <div>
-        <h2 class="font-display text-2xl font-medium text-ink">Local, private, yours</h2>
-        <p class="mt-4 text-base leading-relaxed text-graphite">
-          Keep client work and unreleased assets off shared cloud. Run your
-          models locally, iterate without a per-image meter, and own the box.
+        <h2 class="font-display text-2xl font-medium text-ink sm:text-3xl">Local, private, yours</h2>
+        <p class="mt-5 text-base leading-relaxed text-graphite">
+          Keep client work and unreleased assets off shared cloud. Iterate
+          without a per-image meter, and own the box.
         </p>
       </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 py-10">
-    <div class="grid gap-5 sm:grid-cols-3">
-      <FeatureCard title="Fast GPU" index="01" accent="violet">RTX 5090 / 4090 class for quick generative turnaround.</FeatureCard>
-      <FeatureCard title="Render-stable" index="02" accent="signal">Cooling and power tuned for long, repeated jobs.</FeatureCard>
-      <FeatureCard title="Studio-ready" index="03" accent="green">Quiet enough and clean enough to live in the room.</FeatureCard>
+  <section class="mx-auto max-w-6xl px-5 py-16 sm:py-24">
+    <div class="grid gap-px border border-hairline bg-hairline sm:grid-cols-3">
+      <div class="bg-canvas p-7 sm:p-8">
+        <p class="mono-label mb-3 text-aurora-violet">01</p>
+        <h3 class="font-display text-lg font-medium text-ink">Fast GPU</h3>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">RTX 5090 / 4090 class for quick turnaround.</p>
+      </div>
+      <div class="bg-canvas p-7 sm:p-8">
+        <p class="mono-label mb-3 text-signal">02</p>
+        <h3 class="font-display text-lg font-medium text-ink">Render-stable</h3>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">Cooling and power tuned for long jobs.</p>
+      </div>
+      <div class="bg-canvas p-7 sm:p-8">
+        <p class="mono-label mb-3 text-aurora-green">03</p>
+        <h3 class="font-display text-lg font-medium text-ink">Studio-ready</h3>
+        <p class="mt-3 text-sm leading-relaxed text-graphite">Quiet and clean enough to live in the room.</p>
+      </div>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-5 pb-20 pt-6">
+  <section class="mx-auto max-w-6xl px-5 pb-24 pt-8 sm:pb-32">
     <a href="/contact#request-a-build" class="inline-block rounded-sm border border-aurora-violet/50 bg-aurora-violet/10 px-6 py-3 font-mono text-sm font-medium text-aurora-violet transition-colors hover:bg-aurora-violet/20">Request a studio build</a>
   </section>
 </Main>

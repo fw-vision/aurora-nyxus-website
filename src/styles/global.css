@@ -6,33 +6,100 @@
 /*
   Aurora Nyxus design tokens.
   Reference class: Oxide Computer (oxide.computer) - precision-engineering,
-  monospace-forward, dark canvas, engineering-drawing framing.
+  dark canvas, product-first imagery, generous spacing.
   Signature: aurora (northern-lights) green -> violet luminous gradient.
 */
 
 @theme {
-  /* Canvas + neutrals (dark-first) */
-  --color-canvas: #0a0c10;        /* near-black base */
-  --color-surface: #12151b;       /* raised panels */
-  --color-surface-2: #1a1e26;     /* cards, inputs */
-  --color-hairline: #262b34;      /* borders, rules */
-  --color-ink: #f4f6f8;           /* primary text */
-  --color-graphite: #aab2bd;      /* secondary text */
-  --color-muted: #6b747f;         /* tertiary / captions */
+  --color-canvas: #0a0c10;
+  --color-surface: #12151b;
+  --color-surface-2: #1a1e26;
+  --color-hairline: #262b34;
+  --color-ink: #f4f6f8;
+  --color-graphite: #aab2bd;
+  --color-muted: #6b747f;
 
-  /* Aurora accents (the signature) */
-  --color-aurora-green: #3ff5a5;  /* luminous northern-lights green - primary accent */
-  --color-aurora-violet: #a06bff; /* upper-atmosphere violet - secondary accent */
-  --color-signal: #34d2ff;        /* cyan - telemetry, links, active states */
-  --color-amber: #ffb547;         /* warm caution / premium numeric highlight (rationed) */
+  --color-aurora-green: #3ff5a5;
+  --color-aurora-violet: #a06bff;
+  --color-signal: #34d2ff;
+  --color-amber: #ffb547;
 
-  /* Fonts */
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  /* Inter stands in for commercial ABC Diatype (Intercom / Replit) */
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-brand: "Syne", "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 
-/* Fonts (self-hosted-friendly fallback to system; swap to @font-face in docs/plans handoff) */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/inter-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/inter-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/inter-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/inter-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/syne-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/syne-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Syne";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/syne-700.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-500.woff2") format("woff2");
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/ibm-plex-mono-600.woff2") format("woff2");
+}
 
 html {
   background: var(--color-canvas);
@@ -42,12 +109,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+.font-brand {
+  font-family: var(--font-brand);
+}
+
 body {
   margin: 0;
   min-height: 100vh;
 }
 
-/* The aurora signature gradient - use sparingly (hero accents, key rules) */
 .aurora-gradient {
   background-image: linear-gradient(
     100deg,
@@ -69,7 +139,6 @@ body {
   color: transparent;
 }
 
-/* Ambient aurora glow behind hero hardware/figures */
 .aurora-glow {
   position: relative;
 }
@@ -89,7 +158,6 @@ body {
   z-index: 0;
 }
 
-/* Dot-grid / engineering texture (Oxide reference) */
 .dot-grid {
   background-image: radial-gradient(
     var(--color-hairline) 1px,
@@ -98,16 +166,7 @@ body {
   background-size: 22px 22px;
 }
 
-/* Figure caption convention ("Fig. 1") */
-.fig-label {
-  font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
-
-/* Mono spec/label helper */
+/* Section eyebrow / mono label */
 .mono-label {
   font-family: var(--font-mono);
   font-size: 0.6875rem;
@@ -116,13 +175,20 @@ body {
   color: var(--color-graphite);
 }
 
-/* Links */
+/* Keep .fig-label as alias for mono section labels (footer, partners) */
+.fig-label {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Focus visibility for keyboard users */
 :focus-visible {
   outline: 2px solid var(--color-signal);
   outline-offset: 2px;

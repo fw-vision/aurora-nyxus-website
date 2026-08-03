@@ -1,8 +1,6 @@
 ---
 /**
- * Partnerships / affiliations logo grid. Grayscale text-or-logo cells, hairline
- * grid, nominative-association framing (not endorsement). DAI Compute is the
- * anchor partner. Per-cell borders so incomplete rows never ghost.
+ * Partnerships logo strip. Centers when few partners; hairline cells when many.
  */
 export interface PartnerItem {
   id: string;
@@ -19,52 +17,110 @@ export interface Props {
 const {
   items,
   heading = "In partnership with",
-  note = "Nominative association, not endorsement.",
+  note,
 } = Astro.props;
+
+const centered = items.length <= 2;
 ---
 
-<section class="mx-auto max-w-6xl px-5 py-14">
-  <p class="fig-label mb-6 text-center">{heading}</p>
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-    {
-      items.map((item) => {
-        const classes =
-          "flex min-h-[104px] flex-col items-center justify-center gap-2 border border-hairline bg-surface/40 px-6 py-8 -mt-px -ml-px transition-colors hover:bg-surface/70";
-        const body = (
-          <>
-            {item.logo ? (
-              <img
-                src={item.logo}
-                alt={item.name}
-                class="h-8 w-auto max-w-[160px] object-contain opacity-80"
-                style="filter: grayscale(1) contrast(1.05);"
-                loading="lazy"
-              />
-            ) : (
-              <span class="font-display text-center text-sm font-medium text-ink">
-                {item.name}
-              </span>
-            )}
-            {item.role && (
-              <span class="mono-label text-muted">{item.role}</span>
-            )}
-          </>
-        );
-        return item.href ? (
-          <a
-            href={item.href}
-            class={classes}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={item.name}
-          >
-            {body}
-          </a>
-        ) : (
-          <div class={classes}>{body}</div>
-        );
-      })
-    }
-  </div>
-  {note && <p class="mt-6 text-center text-xs text-muted">{note}</p>}
+<section class="mx-auto max-w-6xl px-5 py-16">
+  <p class="mono-label mb-8 text-center text-muted">{heading}</p>
+  {
+    centered ? (
+      <div class="flex flex-wrap items-center justify-center gap-x-12 gap-y-6">
+        {items.map((item) => {
+          const body = (
+            <>
+              {item.logo ? (
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  class="h-8 w-auto max-w-[160px] object-contain opacity-80"
+                  style="filter: grayscale(1) contrast(1.05);"
+                  loading="lazy"
+                />
+              ) : item.id === "dai" ? (
+                <span class="font-display text-center text-lg font-semibold tracking-tight">
+                  <span style="color: #FF6A1A;">DAI</span>
+                  <span class="text-ink">Compute</span>
+                </span>
+              ) : (
+                <span class="font-display text-center text-base font-medium text-ink">
+                  {item.name}
+                </span>
+              )}
+              {item.role && (
+                <span class="mono-label mt-2 block text-center text-muted">
+                  {item.role}
+                </span>
+              )}
+            </>
+          );
+          return item.href ? (
+            <a
+              href={item.href}
+              class="flex flex-col items-center transition-opacity hover:opacity-80"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.name}
+            >
+              {body}
+            </a>
+          ) : (
+            <div class="flex flex-col items-center">{body}</div>
+          );
+        })}
+      </div>
+    ) : (
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
+        {items.map((item) => {
+          const classes =
+            "flex min-h-[104px] flex-col items-center justify-center gap-2 border border-hairline bg-surface/40 px-6 py-8 -mt-px -ml-px transition-colors hover:bg-surface/70";
+          const body = (
+            <>
+              {item.logo ? (
+                <img
+                  src={item.logo}
+                  alt={item.name}
+                  class="h-8 w-auto max-w-[160px] object-contain opacity-80"
+                  style="filter: grayscale(1) contrast(1.05);"
+                  loading="lazy"
+                />
+              ) : item.id === "dai" ? (
+                <span class="font-display text-center text-base font-semibold tracking-tight">
+                  <span style="color: #FF6A1A;">DAI</span>
+                  <span class="text-ink">Compute</span>
+                </span>
+              ) : (
+                <span class="font-display text-center text-sm font-medium text-ink">
+                  {item.name}
+                </span>
+              )}
+              {item.role && (
+                <span class="mono-label text-muted">{item.role}</span>
+              )}
+            </>
+          );
+          return item.href ? (
+            <a
+              href={item.href}
+              class={classes}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.name}
+            >
+              {body}
+            </a>
+          ) : (
+            <div class={classes}>{body}</div>
+          );
+        })}
+      </div>
+    )
+  }
+  {
+    note && (
+      <p class="mt-8 text-center text-xs text-muted">{note}</p>
+    )
+  }
 </section>
